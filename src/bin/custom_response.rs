@@ -1,7 +1,7 @@
 #[allow(unused)]
 
 use actix_web::http::header::ContentType;
-use actix_web::{body::BoxBody, get, web::{self, Redirect}, App, HttpResponse, HttpServer, Responder};
+use actix_web::{body::BoxBody, get, App, HttpResponse, HttpServer, Responder};
 use serde::Serialize;
 
 #[actix_web::main]
@@ -35,7 +35,7 @@ struct Person {
 
 impl Responder for Person {
   type Body = BoxBody;
-  fn respond_to(self, req: &actix_web::HttpRequest) -> HttpResponse<Self::Body> {
+  fn respond_to(self, _req: &actix_web::HttpRequest) -> HttpResponse<Self::Body> {
       let body = serde_json::to_string_pretty(&self).unwrap();
       HttpResponse::Ok().content_type(ContentType::json()).body(body)
   }
