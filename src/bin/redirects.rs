@@ -1,6 +1,5 @@
-use actix_web::{get, web::{self, Redirect}, App, HttpResponse, HttpServer, Responder};
-
 #[allow(unused)]
+use actix_web::{get, web::{self, Redirect}, App, HttpResponse, HttpServer, Responder};
 
 #[actix_web::main]
 async fn main() {
